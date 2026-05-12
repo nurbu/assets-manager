@@ -47,6 +47,11 @@ public class House extends Asset {
         this.lotSize = lotSize;
     }
 
+    /**
+     * Gets value based off condition
+     *
+     * @return
+     */
     @Override
     public double getValue() {
         if (condition == 1) return (180.0 * squareFoot) + (0.25 * lotSize);

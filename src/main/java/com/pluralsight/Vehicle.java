@@ -6,9 +6,9 @@ public class Vehicle extends Asset {
 
     private String makeModel;
     private int year;
-    private String odometer;
+    private int odometer;
 
-    public Vehicle(String description, String dataAcquired, double originalCost, String makeModel, int year, String odometer) {
+    public Vehicle(String description, String dataAcquired, double originalCost, String makeModel, int year, int odometer) {
         super(description, dataAcquired, originalCost);
         this.makeModel = makeModel;
         this.year = year;
@@ -31,11 +31,11 @@ public class Vehicle extends Asset {
         this.year = year;
     }
 
-    public String getOdometer() {
+    public int getOdometer() {
         return odometer;
     }
 
-    public void setOdometer(String odometer) {
+    public void setOdometer(int odometer) {
         this.odometer = odometer;
     }
 
@@ -48,18 +48,18 @@ public class Vehicle extends Asset {
         if (age <= 3) {
             for (int i = 0; i <= age; i++) {
             }
-            price = 0.97 * getValue();
+            price = 0.97 * super.getValue();
         } else if (age <= 6) {
             for (int i = 0; i <= age; i++) {
             }
-            price = 0.94 * getValue();
+            price = 0.94 * super.getValue();
         } else if (age <= 10) {
             for (int i = 0; i <= age; i++) {
-                price = 0.92 * getValue();
+                price = 0.92 * super.getValue();
             }
-        } else price = getValue() - 1000;
+        } else price = super.getValue() - 1000;
 
-        if (!makeModel.contains("Honda") || makeModel.contains("Toyota") && odometer > 100000) {
+        if (!makeModel.contains("Honda") || makeModel.contains("Toyota") && (odometer > 100000)) {
             price *= 0.75;
         }
         return price;
