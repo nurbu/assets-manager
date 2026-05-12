@@ -3,7 +3,7 @@ package com.pluralsight;
 public class Asset {
     private String description;
     private String dataAcquired;
-    private double originalCost;
+    protected double originalCost;
 
     public Asset(String description, String dataAcquired, double originalCost) {
         this.description = description;
